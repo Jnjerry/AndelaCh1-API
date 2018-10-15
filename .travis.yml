@@ -3,5 +3,12 @@ python:
   - "3.6.1"
 
   #command to install project dependencies
-  install:
+install:
     - pip install -r requirements.txt
+
+script:
+  -coverage run --soruce tests/api/v1 -m pytest -v
+
+
+after_sucess:
+  -coveralls
